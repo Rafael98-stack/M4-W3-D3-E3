@@ -23,6 +23,14 @@ public class App
         Gestione_Eventi evento2 =new Gestione_Eventi("Laurea","Festa",2024,100, TipoEvento.PUBLICO);
         ev.Save(evento1);
         ev.Save(evento2);
+        long id = 1;
+        Gestione_Eventi eventoFromDb= ev.findById(id);
+        if(eventoFromDb != null){
+            System.out.println(eventoFromDb);
+        } else {System.out.println("Evento "+id+" non trovato");
+        }
+        ev.findById(1);
+        ev.Delete(2);
         em.close();
         emf.close();
     }
